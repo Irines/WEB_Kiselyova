@@ -97,10 +97,15 @@
 	width: 100px;
 	text-align: center;
 }
+.form-style-2 input.input-field-matrix{
+	width: 420px;	
+	word-wrap: normal;
+}
 .form-style-2 input.input-field{
 	width: 48%;	
 }
 .form-style-2 input.input-field, 
+.form-style-2 input.input-field-matrix,
 .form-style-2 .birthday-field, 
  .form-style-2 .select-field{
 	box-sizing: border-box;

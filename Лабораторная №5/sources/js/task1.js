@@ -202,46 +202,31 @@ function vowelLen() {
 
 function classifyRug()
 {
-  var Rug = 
-   [
-    ["a", "b", "a"],
-
-    ["b", "b", "b"],
-  
-    ["a", "b", "a"],
-  
-    ["a", "b", "a"]
-  ];
+  var Rug = document.getElementById('rugInput').value;
     //Rug.length = 4
     //Rug[0].length = 3
   function symmetryHorizontal()
   {
-    let flag = false;
-    for (let i=0; i<Math.floor(Rug.length/2);i++)
+    for (let i=0; i<Math.floor(Rug.length/2); i++)
     {
       if (Rug.length%2 != 0)
       {
         if(i == Math.floor(Rug.length/2))
           continue;
       }
-      for (let j=0; j<Rug[0].length;j++)
+      for (let j=0; j<Rug[0].length; j++)
       {
-        if (Rug[i][j] =!Rug[Rug.length - 1 - i][j])
-          flag = false;
-        else flag = true;
+        if (Rug[i][j] !== Rug[Rug.length - 1 - i][j])
+        {
+          return false;
+        }
       }
     }
-    if (flag)
-      return true;
-    else return false;
+    return true;
   }
-/*["a", "b", "a"],
-  ["b", "b", "b"],
-  ["a", "b", "a"],
-  ["a", "b", "a"] */
+
   function symmetryVertical()
   {
-    let flag = false;
     for (let j=0; j<Math.floor(Rug[0].length/2) ;j++)
     {
       if (Rug[0].length%2 != 0)
@@ -251,22 +236,20 @@ function classifyRug()
       }
       for (let i=0; i<Rug.length;i++)
       {
-        if (Rug[i][j] =!Rug[i][Rug[0].length- 1 - j])
-          flag = false;
-        else flag = true;
+        if (Rug[i][j] !== Rug[i][Rug[0].length- 1 - j])
+          return false;
       }
     }
-    if (flag)
-      return true;
-    else return false;
+    return true;
   }
 
   if (symmetryHorizontal() && symmetryVertical())
-    console.log("perfect rug");
+    document.getElementById('rugRes').innerHTML = "perfect rug";
   else if(symmetryHorizontal())
-    console.log("horizontally symmetric");
+    document.getElementById('rugRes').innerHTML ="horizontally symmetric";
   else if(symmetryVertical())
-    console.log("vertically symmetric");
-  else console.log("imperfect");
+    document.getElementById('rugRes').innerHTML ="vertically symmetric";
+  else  document.getElementById('rugRes').innerHTML ="imperfect";
 }
-classifyRug();
+
+
