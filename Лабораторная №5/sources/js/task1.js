@@ -202,7 +202,9 @@ function vowelLen() {
 
 function classifyRug()
 {
-  var Rug = document.getElementById('rugInput').value;
+  //input like aaaa,bbbb,cccc
+  var  str= document.getElementById('rugInput').value;  
+  var Rug=str.split(',');
     //Rug.length = 4
     //Rug[0].length = 3
   function symmetryHorizontal()
